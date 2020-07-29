@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="commands.h" />
     <ClInclude Include="objects.h" />
+    <ClInclude Include="player.h" />
     <ClInclude Include="renderer.h" />
     <ClInclude Include="rooms.h" />
   </ItemGroup>

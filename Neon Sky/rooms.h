@@ -90,6 +90,7 @@ void insert_room_data()
     computer.name = "computer";
     computer.story_data = "Error! Corrupted, glows on the screen the computer doesnt respond to your input.";
     pills.name = "pills";
+    pills.is_takeable = true;
     pills.ascii_data = R"(
 
                          ______________
@@ -131,6 +132,7 @@ void insert_room_data()
 
     disk.story_data = "The floppy disk has computer recovery printed on a white lable.";
     disk.name = "disk";
+    disk.is_takeable = true;
     table.name = "table";
     table.ascii_data = R"(
       ___--________________

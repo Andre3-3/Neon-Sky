@@ -7,6 +7,8 @@
 #include "objects.h"
 #include "rooms.h"
 #include "renderer.h"
+#include "player.h"
+Player player;
 Rooms current_room;
 #include "commands.h"
 

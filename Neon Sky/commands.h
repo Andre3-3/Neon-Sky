@@ -11,7 +11,7 @@ Input_container input_container;
 class Commands
 {
 private:
-	vector<string> commands = { "help", "inventory", "items", "look", "move", "enter", "use", "take" };
+	vector<string> commands = { "help", "inventory", "look", "move", "enter", "use", "take" };
 
 	bool in_array(const std::string& value, const std::vector<string>& array)
 	{
@@ -39,10 +39,6 @@ public:
 					if (in_array(option, commands))
 					{
 						if (option == "inventory")
-						{
-							cout << "Lists all the items you have in your inventory.\n";
-						}
-						else if (option == "items")
 						{
 							cout << "Lists all the items you have in your inventory.\n";
 						}
@@ -78,17 +74,25 @@ public:
 				}
 				else if (command.find("inventory") != string::npos)
 				{
-					command = "";
-				}
-
-				else if (command.find("items") != string::npos)
-				{
-					command = "";
+					if (size(player.inventory) > 0)
+					{
+						cout << "Your inventory contains";
+						for (int i = 0; i < size(player.inventory); i++)
+						{
+							cout << ", ";
+							cout << player.inventory[i].name;
+						}
+						cout << ".";
+						cout << "\n";
+					}
+					else
+					{
+						cout << "You don't have anything in your inventory.\n";
+					}
 				}
 
 				else if (command.find("look") != string::npos)
 				{
-					cout << option;
 					bool found_object = false;
 					if (option != "")
 					{
@@ -103,7 +107,7 @@ public:
 						}
 						if (!found_object)
 						{
-							cout << "Looks like that isn't in the room.";
+							cout << "Looks like that isn't in the room.\n";
 						}
 					}
 					else if (option == "")
@@ -111,32 +115,62 @@ public:
 						draw_room(current_room);
 					}
 				}
-			
 
-			else if (command.find("move") != string::npos)
-			{
-				command = "";
-			}
 
-			else if (command.find("enter") != string::npos)
-			{
-				command = "";
-			}
+				else if (command.find("move") != string::npos)
+				{
+					command = "";
+				}
 
-			}
-			else if (command.find("take") != string::npos)
-			{
+				else if (command.find("enter") != string::npos)
+				{
+					command = "";
+				}
+
+				else if (command.find("take") != string::npos)
+				{
+					bool found_object = false;
+					if (option != "")
+					{
+
+						for (int i = 0; current_room.objects.size() > i; i++)
+						{
+							if (current_room.objects[i].name == option)
+							{
+								found_object = true;
+								if (current_room.objects[i].is_takeable == true)
+								{
+									cout << "You took the " << current_room.objects[i].name << ".\n";
+									player.inventory.push_back(current_room.objects[i]);
+									current_room.objects.erase(current_room.objects.begin() + i);
+									
+								}
+								else
+								{
+									cout << "You can't take the " << current_room.objects[i].name << ".\n";
+								}
+								
+							}
+						}
+						if (!found_object)
+						{
+							cout << "Looks like that isn't in the room.\n";
+						}
+					}
+					else if (option == "")
+					{
+						cout << "Enter take followed by an object you want to take.\n";
+					}
+				}
 
 			}
 			else
 			{
-			cout << "I dont understand that command, try help.";
-			cout << "\n";
-			command = "";
+				cout << "I dont understand that command, try help.";
+				cout << "\n";
+				command = "";
 			}
 		}
-
-		
-	}
+	}	
 };
 
