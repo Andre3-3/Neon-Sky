@@ -54,6 +54,7 @@ string get_arguments(string input)
 {
 	input_container.output_command = "";
 	input_container.output_argument = "";
+	input_container.output_argument2 = "";
 	if (input != "")
 	{
 		vector<string> result;
@@ -66,10 +67,16 @@ string get_arguments(string input)
 		{
 			input_container.output_command = result[0];
 		}
-		else if (result.size() > 1)
+		else if (result.size() == 2)
 		{
 			input_container.output_command = result[0];
 			input_container.output_argument = result[1];
+		}
+		else if (result.size() == 3)
+		{
+			input_container.output_command = result[0];
+			input_container.output_argument = result[1];
+			input_container.output_argument2 = result[2];
 		}
 	}
 	return "";
@@ -81,12 +88,13 @@ int main()
 	start_menu();
 	input_container.output_command = "";
 	input_container.output_argument = "";
+	input_container.output_argument2 = "";
 	while (true)
 	{
 		
 		getline(cin, input_text);
 		get_arguments(input_text);
-		commands.input(input_container.output_command , input_container.output_argument);
+		commands.input(input_container.output_command , input_container.output_argument, input_container.output_argument2);
 	}
 
 	return 0;

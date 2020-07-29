@@ -5,6 +5,7 @@ struct Input_container
 {
 	string output_command;
 	string output_argument;
+	string output_argument2;
 };
 Input_container input_container;
 
@@ -19,7 +20,7 @@ private:
 	}
 
 public:
-	void input(string command, string option)
+	void input(string command, string option, string option2)
 	{
 		if (command != "")
 		{

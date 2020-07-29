@@ -140,6 +140,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Neon Sky.cpp" />
+    <ClCompile Include="Objects.cpp" />
+    <ClCompile Include="Rooms.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="commands.h" />

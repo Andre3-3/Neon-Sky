@@ -1,5 +1,5 @@
 using namespace std;
-
+struct Rooms;
 struct Object
 {
 	string name;
@@ -7,5 +7,7 @@ struct Object
 	string story_data;
 	bool is_door = false;
 	bool is_takeable = false;
+	bool is_useable = false;
+	shared_ptr<Rooms> door_destination;
 };
 
