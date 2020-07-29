@@ -29,7 +29,7 @@ public:
 				if (command == "help")
 				{
 					cout << help.ascii_data << "\n" << help.story_data << "\n\n";
-					cout << "These are the commands you can use type help again to exit this menu.";
+					cout << "These are the commands you can use";
 					for (int i = 0; i < size(commands); i++)
 					{
 						cout << ", ";
@@ -37,62 +37,57 @@ public:
 					}
 					cout << ".";
 					cout << "\n";
-					bool help_bool = true;
-					while (help_bool)
+					if (in_array(option, commands))
 					{
-						string command_help;
-						cin >> command_help;
-						if (command_help == "inventory")
+						if (option == "inventory")
 						{
 							cout << "Lists all the items you have in your inventory.\n";
 						}
-						else if (command_help == "items")
+						else if (option == "items")
 						{
 							cout << "Lists all the items you have in your inventory.\n";
 						}
-						else if (command_help == "look")
+						else if (option == "look")
 						{
 							cout << "Tells you about the room or if followed by an object tels you about the object.\n";
 						}
-						else if (command_help == "move")
+						else if (option == "move")
 						{
 							cout << "Lets you move movable objects, used by typing move and then the object you want to move.\n";
 						}
-						else if (command_help == "enter")
+						else if (option == "enter")
 						{
 							cout << "Allows you to enter a door or room.\n";
 						}
-						else if (command_help == "use")
+						else if (option == "use")
 						{
 							cout << "Lets you use a useable item.\n";
 						}
-						else if (command_help == "take")
+						else if (option == "take")
 						{
 							cout << "Lets you take a item\n";
 						}
-						else if (command_help == "help")
+						else if (option == "help")
 						{
-							cout << "I hope that helped.\n";
-							help_bool = false;
-						}
-						else
-						{
-							cout << "Thats not a command I can help you with.\n";
+							cout << "Gives you this information if help is followed by a command gives you information about that command.\n";
 						}
 					}
-					command = "";
+					else if (option != "")
+					{
+						cout << "Thats not a command I can help you with.\n";
+					}
 				}
-
-				if (command.find("inventory") != string::npos)
-				{
-					command = "";
-				}
-
-				if (command.find("items") != string::npos)
-				{
-					command = "";
-				}
-
+	
+					if (command.find("inventory") != string::npos)
+					{
+						command = "";
+					}
+	
+					if (command.find("items") != string::npos)
+					{
+						command = "";
+					}
+	
 				if (command.find("look") != string::npos)
 				{
 					bool found_object = false;
