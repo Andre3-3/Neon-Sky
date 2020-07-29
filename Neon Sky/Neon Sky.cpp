@@ -50,7 +50,8 @@ void start_menu()
 
 string get_arguments(string input)
 {
-	cout << input;
+	input_container.output_command = "";
+	input_container.output_argument = "";
 	if (input != "")
 	{
 		vector<string> result;
@@ -65,9 +66,9 @@ string get_arguments(string input)
 		}
 		else if (result.size() > 1)
 		{
+			input_container.output_command = result[0];
 			input_container.output_argument = result[1];
 		}
-		cout << result.size();
 	}
 	return "";
 }
@@ -82,7 +83,6 @@ int main()
 	{
 		
 		getline(cin, input_text);
-		cout << input_text;
 		get_arguments(input_text);
 		commands.input(input_container.output_command , input_container.output_argument);
 	}

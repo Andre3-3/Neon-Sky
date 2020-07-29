@@ -25,7 +25,6 @@ public:
 		{
 			if (in_array(command, commands))
 			{
-				cout << command;
 				if (command == "help")
 				{
 					cout << help.ascii_data << "\n" << help.story_data << "\n\n";
@@ -49,7 +48,7 @@ public:
 						}
 						else if (option == "look")
 						{
-							cout << "Tells you about the room or if followed by an object tels you about the object.\n";
+							cout << "Tells you about the room or if followed by an object tells you about the object.\n";
 						}
 						else if (option == "move")
 						{
@@ -77,55 +76,68 @@ public:
 						cout << "Thats not a command I can help you with.\n";
 					}
 				}
-	
-					if (command.find("inventory") != string::npos)
-					{
-						command = "";
-					}
-	
-					if (command.find("items") != string::npos)
-					{
-						command = "";
-					}
-	
+				if (command.find("inventory") != string::npos)
+				{
+					command = "";
+				}
+
+				if (command.find("items") != string::npos)
+				{
+					command = "";
+				}
+
 				if (command.find("look") != string::npos)
 				{
+					cout << option;
 					bool found_object = false;
-					for (int i = 0; current_room.objects.size() > i; i++)
+					if (option != "")
 					{
-						if (option != "") {
+
+						for (int i = 0; current_room.objects.size() > i; i++)
+						{
 							if (current_room.objects[i].name == option)
 							{
 								draw_object(current_room.objects[i]);
 								found_object = true;
 							}
 						}
+						if (!found_object)
+						{
+							cout << "Looks like that isn't in the room.";
+						}
 					}
-					if (found_object == false)
+					else if (option == "")
 					{
+						cout << "did that work";
 						draw_room(current_room);
 					}
-					found_object = false;
-
 				}
+			
 
-				if (command.find("move") != string::npos)
-				{
-					command = "";
-				}
+			if (command.find("move") != string::npos)
+			{
+				command = "";
+			}
 
-				if (command.find("enter") != string::npos)
-				{
-					command = "";
-				}
+			if (command.find("enter") != string::npos)
+			{
+				command = "";
+			}
+
+			}
+			if (command.find("take") != string::npos)
+			{
+
 			}
 			else
 			{
-				cout << "I dont understand that command, try help.";
-				cout << "\n";
-				command = "";
+			cout << "I dont understand that command, try help.";
+			cout << "\n";
+			command = "";
 			}
 		}
+
+		
 	}
 };
 

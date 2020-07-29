@@ -67,7 +67,26 @@ void insert_room_data()
     Object pills;
     Object disks;
     Object metal_door;
-    computer.name = "disks";
+    computer.ascii_data = R"(
+             ,----------------,              ,---------,
+        ,-----------------------,          ,"        ,"|
+      ,"                      ,"|        ,"        ,"  |
+     +-----------------------+  |      ,"        ,"    |
+     |  .-----------------.  |  |     +---------+      |
+     |  |                 |  |  |     | -==----'|      |
+     |  |  Error!         |  |  |     |         |      |
+     |  |  Corrupted      |  |  |/----|`---=    |      |
+     |  |  C:\>_          |  |  |   ,/|==== ooo |      ;
+     |  |                 |  |  |  // |(((( [33]|    ,"
+     |  `-----------------'  |," .;'| |((((     |  ,"
+     +-----------------------+  ;;  | |         |,"
+        /_)______________(_/  //'   | +---------+
+   ___________________________/___  `,
+  /  oooooooooooooooo  .o.  oooo /,   \,"-----------
+ / ==ooooooooooooooo==.o.  ooo= //   ,`\--{)B     ,"
+/_==__==========__==_ooo__ooo=_/'   /___________,"
+`-----------------------------')";
+    computer.name = "computer";
     computer.story_data = "Error! Corrupted, glows on the screen the computer doesnt respond to your input.";
     pills.name = "pills";
     pills.ascii_data = R"(
@@ -90,7 +109,29 @@ void insert_room_data()
    \\8888/ \\8888/   |   `'--'   `'--'    |
     `'--'   `'--'    '--------------------')";
     pills.story_data = "The pills are a light blue color with small text reading di-methal-cindoxl.";
+    disks.ascii_data = R"(
+     ___________________________
+    |[]                        []|
+    |[]   computer recovery    []|
+    |                            |
+    |            . .             |
+    |          `    _`           |
+    |         `  ()|_|`          |
+    |         `       `          |
+    |          ` . . `           |
+    |      ________________      |
+    |     |          ____  |     |
+    |     |         |    | |     |
+    |     |         |    | |     |
+    |     |         |    | |     |
+    |()   |         |_  _| |   ()|
+    |)    |           --   |    (|
+    |_____|[]______________|\___/ )";
+
+    disks.story_data = "All the floppy disks have computer recovery printed on their black plastic.";
+    disks.name = "disks";
     start_room.objects.push_back(computer);
     start_room.objects.push_back(pills);
     start_room.objects.push_back(disks);
+    start_room.objects.push_back(metal_door);
 }
