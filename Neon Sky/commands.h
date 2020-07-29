@@ -76,17 +76,17 @@ public:
 						cout << "Thats not a command I can help you with.\n";
 					}
 				}
-				if (command.find("inventory") != string::npos)
+				else if (command.find("inventory") != string::npos)
 				{
 					command = "";
 				}
 
-				if (command.find("items") != string::npos)
+				else if (command.find("items") != string::npos)
 				{
 					command = "";
 				}
 
-				if (command.find("look") != string::npos)
+				else if (command.find("look") != string::npos)
 				{
 					cout << option;
 					bool found_object = false;
@@ -108,24 +108,23 @@ public:
 					}
 					else if (option == "")
 					{
-						cout << "did that work";
 						draw_room(current_room);
 					}
 				}
 			
 
-			if (command.find("move") != string::npos)
+			else if (command.find("move") != string::npos)
 			{
 				command = "";
 			}
 
-			if (command.find("enter") != string::npos)
+			else if (command.find("enter") != string::npos)
 			{
 				command = "";
 			}
 
 			}
-			if (command.find("take") != string::npos)
+			else if (command.find("take") != string::npos)
 			{
 
 			}

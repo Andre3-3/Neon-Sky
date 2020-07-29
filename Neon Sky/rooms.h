@@ -62,11 +62,12 @@ void insert_room_data()
 /_==__==========__==_ooo__ooo=_/'   /___________,"
 `-----------------------------')";
 
-    start_room.story_data = "A computer sits in a small room your not sure how you got here.\n There is a small table with some disks and some blue pills scattered around.\n A single metal door is the only way out.";
+    start_room.story_data = "A computer sits in a small room your not sure how you got here.\n There is a small table with a disk and some blue pills scattered around.\n A single metal door is the only way out.";
     Object computer;
     Object pills;
-    Object disks;
+    Object disk;
     Object metal_door;
+    Object table;
     computer.ascii_data = R"(
              ,----------------,              ,---------,
         ,-----------------------,          ,"        ,"|
@@ -109,7 +110,7 @@ void insert_room_data()
    \\8888/ \\8888/   |   `'--'   `'--'    |
     `'--'   `'--'    '--------------------')";
     pills.story_data = "The pills are a light blue color with small text reading di-methal-cindoxl.";
-    disks.ascii_data = R"(
+    disk.ascii_data = R"(
      ___________________________
     |[]                        []|
     |[]   computer recovery    []|
@@ -128,10 +129,43 @@ void insert_room_data()
     |)    |           --   |    (|
     |_____|[]______________|\___/ )";
 
-    disks.story_data = "All the floppy disks have computer recovery printed on their black plastic.";
-    disks.name = "disks";
+    disk.story_data = "The floppy disk has computer recovery printed on a white lable.";
+    disk.name = "disk";
+    table.name = "table";
+    table.ascii_data = R"(
+      ___--________________
+     /  |[]|      __      /|
+    /   '__'     /_/     / |
+   /____________________/ / 
+  |_____________________|/|
+   || ||              || ||
+   || ||              || ||
+   || ||              || ||
+   ||                 || 
+   ||                 ||)";
+    table.story_data = "A small wooden table with pills and a floppy disk on it.";
+    metal_door.name = "door";
+    metal_door.story_data = "A solid metal door. Doesn't look like it will open.";
+    metal_door.ascii_data = R"(
+ ______________
+|\ ___________ /|
+| |  _ _ _ _  | |
+| | | | | | | | |
+| | |-+-+-+-| | |
+| | |-+-+-+-| | |
+| | |_|_|_|_| | |
+| |     ___   | |
+| |    /__/   | |
+| |   [%==] ()| |
+| |         ||| |
+| |         ()| |
+| |           | |
+| |           | |
+| |           | |
+|_|___________|_|)";
     start_room.objects.push_back(computer);
     start_room.objects.push_back(pills);
-    start_room.objects.push_back(disks);
+    start_room.objects.push_back(disk);
+    start_room.objects.push_back(table);
     start_room.objects.push_back(metal_door);
 }
