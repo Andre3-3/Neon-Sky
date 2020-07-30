@@ -171,3 +171,5 @@ void insert_room_data()
     start_room.objects.push_back(table);
     start_room.objects.push_back(metal_door);
 }
+
+Rooms current_room;

@@ -18,12 +18,6 @@
     <ClCompile Include="Neon Sky.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Rooms.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Objects.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="commands.h">
