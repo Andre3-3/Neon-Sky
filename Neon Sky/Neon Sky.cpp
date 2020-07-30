@@ -4,8 +4,11 @@
 #include <array>  
 #include <vector>
 #include <sstream>
+
+
 #include "objects.h"
 #include "rooms.h"
+
 #include "renderer.h"
 #include "player.h"
 Player player;
@@ -19,10 +22,7 @@ string command = "";
 string option = "";
 bool start = false;
 
-
 using namespace std;
-
-Commands commands;
 
 void start_menu()
 {
@@ -94,7 +94,7 @@ int main()
 		
 		getline(cin, input_text);
 		get_arguments(input_text);
-		commands.input(input_container.output_command , input_container.output_argument, input_container.output_argument2);
+		input(input_container.output_command , input_container.output_argument, input_container.output_argument2);
 	}
 
 	return 0;
