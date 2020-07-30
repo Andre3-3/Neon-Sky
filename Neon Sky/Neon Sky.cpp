@@ -22,6 +22,7 @@ using namespace std;
 void start_menu()
 {
 	insert_room_data();
+	insert_object_data();
 	cout << welcome.ascii_data << "\n\n";
 	cout << welcome.story_data << "\n";
 	while (!start)

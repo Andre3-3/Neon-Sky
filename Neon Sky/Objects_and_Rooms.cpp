@@ -1,20 +1,17 @@
-using namespace std;
-
-struct Rooms
-{
-	string ascii_data;
-	string story_data;
-    vector<Object> objects;
-};
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <array>  
+#include <vector>
+#include "objects.h"
+#include "rooms.h"
 Rooms welcome;
 Rooms help;
 Rooms start_room;
 
-//vector<Rooms> rooms = {welcome, help,};
-
 void insert_room_data()
 {
-	welcome.ascii_data = R"(
+    welcome.ascii_data = R"(
  ________   _______   ________  ________           ________  ___  __        ___    ___ 
 |\   ___  \|\  ___ \ |\   __  \|\   ___  \        |\   ____\|\  \|\  \     |\  \  /  /|
 \ \  \\ \  \ \   __/|\ \  \|\  \ \  \\ \  \       \ \  \___|\ \  \/  /|_   \ \  \/  / /
@@ -24,11 +21,11 @@ void insert_room_data()
     \|__| \|__|\|_______|\|_______|\|__| \|__|       |\_________\|__| \|__|\___/ /     
                                                      \|_________|         \|___|/      )";
 
-	welcome.story_data = "Welcome to Neon Sky type start to begin or resume or continue to resume a saved game.";
+    welcome.story_data = "Welcome to Neon Sky type start to begin or resume or continue to resume a saved game.";
 
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	help.ascii_data = R"(
+    help.ascii_data = R"(
  ___  __   _______   ___       ________   
 |\  \|\  \|\  ___ \ |\  \     |\   __  \  
 \ \  \\\  \ \   __/|\ \  \    \ \  \|\  \ 
@@ -38,7 +35,7 @@ void insert_room_data()
     \|__|\|__|\|_______|\|_______|\|__|   
                                           )";
 
-	help.story_data = "Enter a help followed by a command to learn more about it.";
+    help.story_data = "Enter a help followed by a command to learn more about it.";
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -151,6 +148,7 @@ void insert_object_data()
    ||                 ||)";
     table.story_data = "A small wooden table with pills and a floppy disk on it.";
     metal_door.name = "door";
+    metal_door.is_door = true;
     metal_door.story_data = "A solid metal door. Doesn't look like it will open.";
     metal_door.ascii_data = R"(
  ______________
@@ -169,7 +167,7 @@ void insert_object_data()
 | |           | |
 | |           | |
 |_|___________|_|)";
-
+    //metal_door.door_destination = 
     start_room.objects.push_back(computer);
     start_room.objects.push_back(pills);
     start_room.objects.push_back(disk);
